@@ -1,0 +1,8 @@
+/* open office writer */
+*.odt
+
+/* StarUML files */
+*.mdj
+
+/* Pencil files */
+*.epgz
