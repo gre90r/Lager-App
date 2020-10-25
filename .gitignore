@@ -1,5 +1,6 @@
-node_modules/
-
+/***********************/
+/* documentation files */
+/***********************/
 /* open office writer */
 *.odt
 
@@ -8,3 +9,4 @@ node_modules/
 
 /* Pencil files */
 *.epgz
+
