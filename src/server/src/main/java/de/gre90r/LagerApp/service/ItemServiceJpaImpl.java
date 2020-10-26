@@ -34,7 +34,7 @@ public class ItemServiceJpaImpl implements ItemService {
       logger.logInfo("get item with id " + id);
       return this.itemRepository.findById(id).get();
     }
-    logger.logWarning("item with id " + id + " not found.");
+    logger.logWarning("item with id " + id + " not found. cannot get.");
     return null;
   }
 
@@ -50,14 +50,18 @@ public class ItemServiceJpaImpl implements ItemService {
 
   @Override
   public void updateItem(Item item) {
-    this.itemRepository.save(item);
-    logger.logInfo("updated item with id " + item.getId());
+    if (this.itemRepository.existsById(item.getId())) {
+      this.itemRepository.save(item);
+      logger.logInfo("updated item with id " + item.getId());
+    } else {
+      logger.logWarning("item with id " + item.getId() + " not found. cannot update.");
+    }
   }
 
   @Override
   public void addItem(Item item) {
     if (this.itemRepository.existsById(item.getId())) {
-      logger.logWarning("Item id " + item.getId() + " already exists.");
+      logger.logWarning("Item id " + item.getId() + " already exists. will not add.");
     } else {
       this.itemRepository.save(item);
     }
