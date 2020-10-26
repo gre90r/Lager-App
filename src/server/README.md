@@ -1,12 +1,20 @@
 # Lager App Server
-Currently, this server has CRUD functionality for items.
-No DB yet, everything runs in memory.
+Currently, this server has CRUD functionality for items
+and locations.
+
+Currently, using embedded DB.
+
+# Technologies used
+* Java 8
+* Spring Boot
+* JPA
+* Apache Derby DB
 
 # 1 Run
-start `buildAndRun.sh`
+Start `buildAndRun.sh`
 
 # 2 Available requests
-see the postman collection in
+See the postman collection in
 *src/test/postman/Lager-App.postman_collection.json*
 
 ## 2.1 Item requests
@@ -20,28 +28,46 @@ see the postman collection in
     
 ### create and update items
 To create and update items, you have to send JSON.
-
+    
 e.g.
 
 ```
 {
     "id": 1,
-    "name": "pencil"
+    "name": "chair",
+    "location": "living room",
+    "description": "beside table"
 }
 ```
-send this with HTTP POST to /items and it will create that
+Send this with HTTP POST to /items and it will create that
 item.
 
-To update the above pencil to screw driver, you send this
-with HTTP PUT to /items
+To update the above chair to location kitcgeb, you send
+this with HTTP PUT to /items
 
 ```
 {
     "id": 1,
-    "name": "screw driver"
+    "name": "chair",
+    "location": "kitchen",
+    "description": "beside table"
 }
 ```
 item with id 1 will be overwritten.
+
+## 2.2. Location requests
+Same as Item requests. Only with */locations* as mapping.
+
+the JSON looks like this:
+```
+{
+    "id": 1,
+    "name": "pen drawer in living room",
+    "lagerTyp": "living room",
+    "lagerBereich": "closet 1",
+    "lagerPlatz": "drawer 1"
+}
+```
 
 # 3 Tests
 # 3.1 Unit tests
