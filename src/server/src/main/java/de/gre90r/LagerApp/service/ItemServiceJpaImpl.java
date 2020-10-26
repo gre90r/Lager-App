@@ -30,8 +30,12 @@ public class ItemServiceJpaImpl implements ItemService {
 
   @Override
   public Item getItemById(int id) {
-    logger.logInfo("get item with id " + id);
-    return this.itemRepository.findById(id).get();
+    if (this.itemRepository.existsById(id)) {
+      logger.logInfo("get item with id " + id);
+      return this.itemRepository.findById(id).get();
+    }
+    logger.logWarning("item with id " + id + " not found.");
+    return null;
   }
 
   @Override
