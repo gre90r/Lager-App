@@ -3,6 +3,7 @@ package de.gre90r.LagerApp.controller;
 import de.gre90r.LagerApp.entity.Item;
 import de.gre90r.LagerApp.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class ItemController {
     This way it's decoupled.
    */
   @Autowired
+  @Qualifier("jpa")
   private ItemService itemService;
 
   /**
@@ -58,7 +60,7 @@ public class ItemController {
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-  public void insertItem(@RequestBody Item item) {
-    this.itemService.insertItem(item);
+  public void addItem(@RequestBody Item item) {
+    this.itemService.addItem(item);
   }
 }

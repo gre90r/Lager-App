@@ -34,7 +34,7 @@ public class ItemDaoMySqlImpl implements ItemDao {
   }
 
   @Override
-  public void insertItem(Item item) {
+  public void addItem(Item item) {
 
   }
 }

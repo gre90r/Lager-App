@@ -17,9 +17,9 @@ public class ItemDaoFakeImpl implements ItemDao {
     // test data
     items = new HashMap<Integer, Item>() {
       {
-        put(1, new Item(1, "hammer"));
-        put(2, new Item(2, "book"));
-        put(3, new Item(3, "chair"));
+        put(1, new Item(1, "hammer", "room1", "no description"));
+        put(2, new Item(2, "book", "room1", "no description"));
+        put(3, new Item(3, "chair", "room1", "no description"));
       }
     };
   }
@@ -45,7 +45,7 @@ public class ItemDaoFakeImpl implements ItemDao {
   }
 
   @Override
-  public void insertItem(Item item) {
+  public void addItem(Item item) {
     items.put(item.getId(), item);
   }
 }
