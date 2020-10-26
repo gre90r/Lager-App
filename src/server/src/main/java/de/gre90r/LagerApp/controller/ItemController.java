@@ -42,7 +42,7 @@ public class ItemController {
   }
 
   /**
-   * delete on item from db by id
+   * delete item from db by id
    * @param id id of item to delete
    */
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
