@@ -1,5 +1,6 @@
 package de.gre90r.LagerApp.location;
 
+import de.gre90r.LagerApp.item.Item;
 import de.gre90r.LagerApp.util.logger.Logger;
 import de.gre90r.LagerApp.util.logger.LoggerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,41 +28,26 @@ public class LocationServiceJpaImpl implements LocationService {
   }
 
   @Override
-  public Location getLocationById(int id) {
-    if (this.locationRepository.existsById(id)) {
-      logger.logInfo("get location with id " + id);
-      return this.locationRepository.findById(id).get();
-    }
-    logger.logWarning("location with id " + id + " not found. cannot get.");
-    return null;
-  }
-
-  @Override
-  public void deleteLocationById(int id) {
-    if (this.locationRepository.existsById(id)) {
-      this.locationRepository.deleteById(id);
-      logger.logInfo("deleted location with id " + id);
-    } else {
-      logger.logWarning("location with id " + id + " not found. cannot delete.");
-    }
-  }
-
-  @Override
-  public void updateLocation(Location location) {
-    if (this.locationRepository.existsById(location.getId())) {
-      this.locationRepository.save(location);
-      logger.logInfo("updated location with id " + location.getId());
-    } else {
-      logger.logWarning("location with id " + location.getId() + " not found. cannot update.");
+  public void deleteLocation(Location location) {
+    try {
+      this.locationRepository.delete(location);
+      logger.logInfo("deleted location " + location.toString());
+    } catch (Exception e) {
+      logger.logWarning("location " + location.toString() + " not found. cannot delete.");
     }
   }
 
   @Override
   public void addLocation(Location location) {
-    if (this.locationRepository.existsById(location.getId())) {
-      logger.logWarning("Location id " + location.getId() + " already exists. will not add.");
-    } else {
-      this.locationRepository.save(location);
-    }
+    this.locationRepository.save(location);
+    logger.logInfo("added location " + location.toString());
   }
+
+  @Override
+  public Collection<Item> getAllItemsAtLocation(Location location) {
+    return this.locationRepository.findByLagerTypAndLagerBereichAndLagerPlatz(
+            location.getLagerTyp(), location.getLagerBereich(), location.getLagerPlatz()
+    );
+  }
+
 }

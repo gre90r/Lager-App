@@ -1,5 +1,6 @@
 package de.gre90r.LagerApp.item;
 
+import de.gre90r.LagerApp.location.Location;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
@@ -16,9 +17,9 @@ public class ItemDaoFakeImpl implements ItemDao {
     // test data
     items = new HashMap<Integer, Item>() {
       {
-        put(1, new Item(1, "hammer", "room1", "no description"));
-        put(2, new Item(2, "book", "room1", "no description"));
-        put(3, new Item(3, "chair", "room1", "no description"));
+        put(1, new Item("hammer", new Location("basement", "closet1", "ground"), "no description"));
+        put(2, new Item("book", new Location("basement", "closet1", "ground"), "no description"));
+        put(3, new Item("chair", new Location("basement", "closet1", "ground"), "no description"));
       }
     };
   }

@@ -1,17 +1,15 @@
 package de.gre90r.LagerApp.location;
 
-import de.gre90r.LagerApp.location.Location;
+import de.gre90r.LagerApp.item.Item;
 
 import java.util.Collection;
 
 public interface LocationService {
   Collection<Location> getAllLocations();
 
-  Location getLocationById(int id);
-
-  void deleteLocationById(int id);
-
-  void updateLocation(Location location);
+  void deleteLocation(Location location);
 
   void addLocation(Location location);
+
+  Collection<Item> getAllItemsAtLocation(Location location);
 }

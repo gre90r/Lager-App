@@ -32,14 +32,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/items/3",
+							"raw": "localhost:8080/items/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"items",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -51,21 +51,21 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/items/3",
+							"raw": "localhost:8080/items/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"items",
-								"3"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update item",
+					"name": "change paper location to a b c",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -78,7 +78,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": 4,\n\t\"name\": \"chair\",\n    \"location\": \"living room\",\n    \"description\": \"beside the table\"\n}",
+							"raw": "{\n    \"id\": 2,\n\t\"name\": \"paper\",\n    \"location\": {\n        \"lagerTyp\": \"a\",\n        \"lagerBereich\": \"b\",\n        \"lagerPlatz\": \"c\"\n    },\n    \"description\": \"paper for writing letters\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +99,7 @@
 					"response": []
 				},
 				{
-					"name": "add item",
+					"name": "add item: pen",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -112,7 +112,41 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": 4,\n\t\"name\": \"chair\",\n    \"location\": \"living room\",\n    \"description\": \"\"\n}",
+							"raw": "{\n\t\"name\": \"pen\",\n    \"location\": {\n        \"lagerTyp\": \"living room\",\n        \"lagerBereich\": \"closet 1\",\n        \"lagerPlatz\": \"top shelf\"\n    },\n    \"description\": \"blue pen\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/items",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item: paper",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"paper\",\n    \"location\": {\n        \"lagerTyp\": \"living room\",\n        \"lagerBereich\": \"table\",\n        \"lagerPlatz\": \"1st drawer from left\"\n    },\n    \"description\": \"paper for writing letters\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -157,32 +191,16 @@
 					"response": []
 				},
 				{
-					"name": "get location by id",
+					"name": "get all items at location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "localhost:8080/locations/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"locations",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add location",
-					"request": {
-						"method": "POST",
-						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"room1\",\n    \"lagerTyp\": \"room\",\n    \"lagerBereich\": \"closet\",\n    \"lagerPlatz\": \"drawer 1\"\n}",
+							"raw": "{\n    \"lagerTyp\": \"basement\",\n    \"lagerBereich\": \"closet 1\",\n    \"lagerPlatz\": \"drawer 1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -190,26 +208,27 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/locations",
+							"raw": "localhost:8080/locations/allItems",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"locations"
+								"locations",
+								"allItems"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update location",
+					"name": "add location: a b c",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"drawer in room 1\",\n    \"lagerTyp\": \"room 1\",\n    \"lagerBereich\": \"closet\",\n    \"lagerPlatz\": \"drawer 1\"\n}",
+							"raw": "{\n    \"lagerTyp\": \"a\",\n    \"lagerBereich\": \"b\",\n    \"lagerPlatz\": \"c\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -234,15 +253,23 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lagerTyp\": \"living room\",\n    \"lagerBereich\": \"table\",\n    \"lagerPlatz\": \"1st drawer from left\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/locations/1",
+							"raw": "localhost:8080/locations",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"locations",
-								"1"
+								"locations"
 							]
 						}
 					},

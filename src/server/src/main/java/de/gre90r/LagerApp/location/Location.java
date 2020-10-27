@@ -1,65 +1,56 @@
 package de.gre90r.LagerApp.location;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import de.gre90r.LagerApp.item.Item;
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
+@IdClass(LocationId.class) // needed because of multiple primary keys
+@Table(name = "location")
 public class Location {
 
   @Id
-  private int id;
-  private String name;
-  private String lagerTyp; // for meaning of naming refer to https://mind-logistik.de/knowhow/sap-lagerplatz-lagerbereich-und-lagertyp/
-  private String lagerBereich;
-  private String lagerPlatz;
+  private final String lagerTyp; // for meaning of naming refer to https://mind-logistik.de/knowhow/sap-lagerplatz-lagerbereich-und-lagertyp/
+  @Id
+  private final String lagerBereich;
+  @Id
+  private final String lagerPlatz;
+  // one location stores many items
+  @OneToMany(
+          targetEntity = Item.class,
+          mappedBy = "location"
+//          // location should be preserved after item has been deleted, so do not cascade on DELETE
+//          cascade = { CascadeType.MERGE, CascadeType.PERSIST }
+  )
+  private Collection<Item> items;
 
-  public Location(int id, String name, String lagerTyp, String lagerBereich, String lagerPlatz) {
-    this.id = id;
-    this.name = name;
+  public Location(String lagerTyp, String lagerBereich, String lagerPlatz) {
     this.lagerTyp = lagerTyp;
     this.lagerBereich = lagerBereich;
     this.lagerPlatz = lagerPlatz;
   }
 
-  public Location() {}
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public Location() {
+    this.lagerTyp = "";
+    this.lagerBereich = "";
+    this.lagerPlatz = "";
   }
 
   public String getLagerTyp() {
-    return lagerTyp;
-  }
-
-  public void setLagerTyp(String lagerTyp) {
-    this.lagerTyp = lagerTyp;
+    return this.lagerTyp;
   }
 
   public String getLagerBereich() {
-    return lagerBereich;
-  }
-
-  public void setLagerBereich(String lagerBereich) {
-    this.lagerBereich = lagerBereich;
+    return this.lagerBereich;
   }
 
   public String getLagerPlatz() {
-    return lagerPlatz;
+    return this.lagerPlatz;
   }
 
-  public void setLagerPlatz(String lagerPlatz) {
-    this.lagerPlatz = lagerPlatz;
+  @Override
+  public String toString() {
+    return "{" + this.lagerTyp + ", " + this.lagerBereich + ", " +  this.lagerPlatz + "}";
   }
 }
