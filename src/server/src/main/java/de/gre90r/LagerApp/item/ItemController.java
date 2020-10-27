@@ -1,7 +1,5 @@
-package de.gre90r.LagerApp.controller;
+package de.gre90r.LagerApp.item;
 
-import de.gre90r.LagerApp.entity.Item;
-import de.gre90r.LagerApp.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;

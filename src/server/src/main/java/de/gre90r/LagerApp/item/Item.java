@@ -1,4 +1,4 @@
-package de.gre90r.LagerApp.entity;
+package de.gre90r.LagerApp.item;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,9 +1,7 @@
-package de.gre90r.LagerApp.service;
+package de.gre90r.LagerApp.location;
 
-import de.gre90r.LagerApp.dao.LocationRepository;
-import de.gre90r.LagerApp.entity.Location;
-import de.gre90r.LagerApp.util.Logger;
-import de.gre90r.LagerApp.util.LoggerImpl;
+import de.gre90r.LagerApp.util.logger.Logger;
+import de.gre90r.LagerApp.util.logger.LoggerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

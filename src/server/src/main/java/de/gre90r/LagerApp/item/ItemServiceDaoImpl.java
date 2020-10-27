@@ -1,7 +1,5 @@
-package de.gre90r.LagerApp.service;
+package de.gre90r.LagerApp.item;
 
-import de.gre90r.LagerApp.dao.ItemDao;
-import de.gre90r.LagerApp.entity.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

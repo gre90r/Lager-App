@@ -1,7 +1,5 @@
-package de.gre90r.LagerApp.controller;
+package de.gre90r.LagerApp.location;
 
-import de.gre90r.LagerApp.entity.Location;
-import de.gre90r.LagerApp.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;

@@ -1,6 +1,5 @@
-package de.gre90r.LagerApp.dao;
+package de.gre90r.LagerApp.item;
 
-import de.gre90r.LagerApp.entity.Item;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 

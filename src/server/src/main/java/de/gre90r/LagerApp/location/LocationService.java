@@ -1,6 +1,6 @@
-package de.gre90r.LagerApp.service;
+package de.gre90r.LagerApp.location;
 
-import de.gre90r.LagerApp.entity.Location;
+import de.gre90r.LagerApp.location.Location;
 
 import java.util.Collection;
 

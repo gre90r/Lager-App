@@ -1,6 +1,6 @@
-package de.gre90r.LagerApp.dao;
+package de.gre90r.LagerApp.item;
 
-import de.gre90r.LagerApp.entity.Item;
+import de.gre90r.LagerApp.item.Item;
 
 import java.util.Collection;
 
