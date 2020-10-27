@@ -64,6 +64,7 @@ public class ItemServiceJpaImpl implements ItemService {
       logger.logWarning("Item id " + item.getId() + " already exists. will not add.");
     } else {
       this.itemRepository.save(item);
+      logger.logInfo("added item with id " + item.getId());
     }
   }
 }
