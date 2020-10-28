@@ -7,8 +7,10 @@ import javax.persistence.*;
 @Entity
 public class Item {
 
+  private static int idCount = 0;
+
   @Id
-  @GeneratedValue
+//  @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String name;
   @ManyToOne( // many items can be stored at the same location
@@ -23,13 +25,26 @@ public class Item {
   private Location location;
   private String description;
 
+  /**
+   * only this constructor should be used in the application, because
+   * with this the id will be automatically generated.
+   * @param name item name
+   * @param location location where the item is stored
+   * @param description item description
+   */
   public Item(String name, Location location, String description) {
+    this.id = idCount++;
     this.name = name;
     this.location = location;
     this.description = description;
   }
 
-  public Item() {}
+  public Item() {
+    this.id = idCount++;
+    this.name = "";
+    this.location = new Location("", "", "");
+    this.description = "";
+  }
 
   public int getId() {
     return id;

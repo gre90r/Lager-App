@@ -39,4 +39,9 @@ public class ItemServiceDaoImpl implements ItemService {
   public void addItem(Item item) {
     this.itemDao.addItem(item);
   }
+
+  @Override
+  public void deleteAllItems() {
+    // TODO: implement
+  }
 }

@@ -1,14 +1,14 @@
 # Lager App Server
-Currently, this server has CRUD functionality for items
-and locations.
+A web API which provides a DB with CRUD functionality to
+store items in locations.
 
-Currently, using embedded DB.
+Currently, using embedded DB. (*TODO: use MySQL*)
 
 # Technologies used
 * Java 8
 * Spring Boot
 * JPA
-* Apache Derby DB
+* Apache Derby DB (in-memory DB)
 
 # 1 Run
 Start `buildAndRun.sh`
@@ -70,9 +70,9 @@ the JSON looks like this:
 ```
 
 # 3 Tests
-# 3.1 Unit tests
+## 3.1 Unit tests
 run `mvn test`
 
-# 3.2 Postman
+## 3.2 Postman
 To test server requests use the postman collection located
 in *src/test/postman/Lager-App.postman_collection.json*

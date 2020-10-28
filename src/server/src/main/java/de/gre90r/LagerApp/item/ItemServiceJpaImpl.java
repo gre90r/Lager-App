@@ -65,4 +65,9 @@ public class ItemServiceJpaImpl implements ItemService {
       logger.logInfo("added item with id " + item.getId());
     }
   }
+
+  @Override
+  public void deleteAllItems() {
+    this.itemRepository.deleteAll();
+  }
 }
