@@ -13,6 +13,8 @@ import java.util.Collection;
 @Qualifier("jpa")
 public class ItemServiceJpaImpl implements ItemService {
 
+  // TODO: do not call DB here. extract DB calls to ItemDaoDerbyImpl.
+
   @Autowired
   private ItemRepository itemRepository;
 

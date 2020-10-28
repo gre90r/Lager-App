@@ -138,7 +138,7 @@ class ItemServiceJpaImplTest {
    * should update an item, not add a new one.
    */
   @Test
-  void updateItem() {
+  void updateItem_existingItem() {
     final int NUM_ITEMS = this.itemService.getAllItems().size();
 
     // add item
@@ -155,6 +155,25 @@ class ItemServiceJpaImplTest {
 
     // should still be the +1 item in DB
     assertEquals(NUM_ITEMS + 1, this.itemService.getAllItems().size());
+  }
+
+  /**
+   * should not update non existing item.
+   * updateItem should not add items.
+   */
+  @Test
+  void updateItem_notExistingItem() {
+    // guarantee no items are in DB
+    assertEquals(0, this.itemService.getAllItems().size());
+
+    // no items in DB, so there is nothing to update.
+
+    Assertions.assertDoesNotThrow(() -> {
+      this.itemService.updateItem(createTestItem());
+    });
+
+    // updateItem should not add an item.
+    assertEquals(0, this.itemService.getAllItems().size());
   }
 
   /***********/
