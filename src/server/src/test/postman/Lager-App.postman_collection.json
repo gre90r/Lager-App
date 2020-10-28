@@ -51,14 +51,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/items/2",
+							"raw": "localhost:8080/items/5",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"items",
-								"2"
+								"5"
 							]
 						}
 					},
@@ -72,13 +72,13 @@
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 2,\n\t\"name\": \"paper\",\n    \"location\": {\n        \"lagerTyp\": \"a\",\n        \"lagerBereich\": \"b\",\n        \"lagerPlatz\": \"c\"\n    },\n    \"description\": \"paper for writing letters\"\n}",
+							"raw": "{\n        \"id\": 3,\n        \"name\": \"pen\",\n        \"location\": {\n            \"lagerTyp\": \"a\",\n            \"lagerBereich\": \"b\",\n            \"lagerPlatz\": \"c\"\n        },\n        \"description\": \"blue pen\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -112,7 +112,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"pen\",\n    \"location\": {\n        \"lagerTyp\": \"living room\",\n        \"lagerBereich\": \"closet 1\",\n        \"lagerPlatz\": \"top shelf\"\n    },\n    \"description\": \"blue pen\"\n}",
+							"raw": "{\n\t\"name\": \"pen\",\n    \"location\": {\n        \"lagerTyp\": \"a\",\n        \"lagerBereich\": \"b\",\n        \"lagerPlatz\": \"c\"\n    },\n    \"description\": \"blue pen\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,14 +208,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/locations/allItems",
+							"raw": "localhost:8080/locations/allItemsAtLocation",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"locations",
-								"allItems"
+								"allItemsAtLocation"
 							]
 						}
 					},
@@ -255,7 +255,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"lagerTyp\": \"living room\",\n    \"lagerBereich\": \"table\",\n    \"lagerPlatz\": \"1st drawer from left\"\n}",
+							"raw": "{\n    \"lagerTyp\": \"a\",\n    \"lagerBereich\": \"b\",\n    \"lagerPlatz\": \"c\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
