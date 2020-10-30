@@ -78,7 +78,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"id\": 3,\n        \"name\": \"pen\",\n        \"location\": {\n            \"lagerTyp\": \"a\",\n            \"lagerBereich\": \"b\",\n            \"lagerPlatz\": \"c\"\n        },\n        \"description\": \"blue pen\"\n    }",
+							"raw": "{\n    \"id\": 3,\n    \"name\": \"pen\",\n    \"location\": {\n        \"lagerTyp\": \"a\",\n        \"lagerBereich\": \"b\",\n        \"lagerPlatz\": \"c\"\n    },\n    \"description\": \"blue pen\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
