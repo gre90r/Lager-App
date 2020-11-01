@@ -10,6 +10,18 @@ Wohnungen etc. Finden Sie jeden Gegenständen innerhalb weniger
 Sekunden. Tragen Sie Gegenstände mit nur wenigen Klicks ein. Lagern
 Sie all Ihre Gegenstände wie ein Profi.
 
+# Technologies used
+* Frontend
+    * Angular
+        * TypeScript
+        * HTML5
+        * CSS
+* Backend
+    * Spring Boot
+        * Java 8
+        * JPA / Hibernate
+        * MySQL
+
 # 1 Project idea
 Idea by EresHDP. Documentation is a collaboration of EresHDP and gre90r.
 
