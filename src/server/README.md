@@ -31,7 +31,7 @@ e.g.
 
 ```
 {
-	"name": "paper",
+    "name": "paper",
     "location": {
         "lagerTyp": "living room",
         "lagerBereich": "table",
